@@ -1389,7 +1389,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Santhera/Pods-Santhera-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Santhera/Pods-Santhera-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AppImageViewer/AppImageViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -1404,7 +1404,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Santhera/Pods-Santhera-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Santhera/Pods-Santhera-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7FE72B5B8399659589747712 /* [CP] Check Pods Manifest.lock */ = {
