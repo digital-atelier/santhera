@@ -78,7 +78,7 @@ open class SHCreditCardValidator {
         }
         
         var reversedString = ""
-        let range = Range<String.Index>(numbers.startIndex..<numbers.endIndex)
+        let range = numbers.startIndex..<numbers.endIndex
         numbers.enumerateSubstrings(in: range, options: [NSString.EnumerationOptions.reverse, NSString.EnumerationOptions.byComposedCharacterSequences]) { (substring, substringRange, enclosingRange, stop) -> () in
             reversedString += substring!
         }
