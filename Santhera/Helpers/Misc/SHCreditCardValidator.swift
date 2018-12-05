@@ -10,39 +10,29 @@ import Foundation
 
 public struct SHCreditCardValidationType: Equatable {
     
-    public var name: String
+    public let name: String
     
-    public var regex: String
+    public let regex: String
     
-    public init(dict: [String: AnyObject]) {
-        if let name = dict["name"] as? String {
-            self.name = name
-        } else {
-            self.name = ""
+    init?(dict: [String: String]) {
+        guard
+            let name = dict["name"],
+            let regex = dict["regex"] else {
+                return nil
         }
-        
-        if let regex = dict["regex"] as? String {
-            self.regex = regex
-        } else {
-            self.regex = ""
-        }
-    }
-    
-}
 
-public func ==(lhs: SHCreditCardValidationType, rhs: SHCreditCardValidationType) -> Bool {
-    return lhs.name == rhs.name
+        self.name = name
+        self.regex = regex
+    }
+
+    static public func ==(lhs: SHCreditCardValidationType, rhs: SHCreditCardValidationType) -> Bool {
+        return lhs.name == rhs.name
+    }
 }
 
 open class SHCreditCardValidator {
     
-    open lazy var types: [SHCreditCardValidationType] = {
-        var types = [SHCreditCardValidationType]()
-        for object in SHCreditCardValidator.types {
-            types.append(SHCreditCardValidationType(dict: object as [String : AnyObject]))
-        }
-        return types
-    }()
+    open lazy var types = SHCreditCardValidator.types
     
     public init() { }
     
@@ -147,6 +137,5 @@ open class SHCreditCardValidator {
             "name": "UnionPay",
             "regex": "^62[0-5]\\d{13,16}$"
         ]
-    ]
-    
+    ].compactMap(SHCreditCardValidationType.init)
 }
